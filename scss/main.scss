@@ -1,0 +1,479 @@
+@import "utility";
+// fonts
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.header {
+  display: flex;
+  height: 90px;
+  z-index: 20;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+span.dot {
+  color: $color-primary;
+}
+nav ul {
+  li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 0 10px 28px;
+  }
+  a {
+    text-decoration: none;
+    color: #7f7f90;
+    font-weight: 600;
+    &:hover {
+      color: #111;
+      position: relative;
+    }
+  }
+}
+.active {
+  color: #111;
+}
+nav a:link::after,
+nav a:visited::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ce1212;
+  transform: scaleX(0);
+  bottom: 0;
+}
+nav a:hover::after,
+nav a:active::after {
+  transform: scaleX(1);
+  transition: transform 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transform-origin: left;
+}
+.dropdown ul a:hover::after,
+.dropdown ul a:active::after {
+  transform: scaleX(0);
+}
+.dropdown,
+.deepdropdown {
+  position: relative;
+}
+.dropdown ul {
+  position: absolute;
+  width: 200px;
+  line-height: 32px;
+  background: #fff;
+  border-radius: 5px;
+  display: none;
+  li a:hover {
+    color: $color-primary;
+  }
+}
+
+.dropdown:hover ul {
+  display: block;
+}
+.deepdropdown ul {
+  position: absolute;
+  right: 180px;
+  top: 10px;
+  width: 200px;
+  line-height: 32px;
+  li {
+    display: none;
+  }
+}
+.deepdropdown:hover ul li {
+  display: block;
+}
+.bar {
+  display: none;
+  height: 40px;
+  width: 40px;
+  font-size: 28px;
+  color: #37373f;
+}
+// ------hero-section-------
+
+.hero-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 200px;
+  &__contants {
+    padding: 80px 0 40px 0;
+    &--cta {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__contants h2 {
+    font-size: 64px;
+    font-family: $font-primary;
+    margin-bottom: 30px;
+    padding-top: 40px;
+  }
+  &__contants p {
+    font-weight: 400;
+    color: #4f4f5a;
+    margin-bottom: 30px;
+  }
+}
+
+.hero-section__image {
+  padding: 80px 0 40px 0;
+  img {
+    max-width: 100%;
+    height: auto;
+    justify-content: center;
+  }
+}
+
+.watch {
+  font-size: 16px;
+  font-weight: 600;
+  color: #37373f;
+  i {
+    margin-left: 25px;
+    color: #ce1212;
+    font-size: 32px;
+    flex: 1;
+  }
+}
+
+.video {
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.video:hover {
+  color: #ce1212;
+}
+
+// about-us----------------------
+
+.about-us {
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  gap: 40px;
+}
+.about-us__booking {
+  background-image: url(../images/about.jpg);
+  background-repeat: no-repeat;
+  position: relative;
+  &--call-us {
+    position: absolute;
+
+    font-size: 24px;
+    padding: 15px 20px;
+    background-color: #fff;
+    text-align: center;
+    left: 50px;
+    right: 50px;
+    bottom: 80px;
+  }
+  p {
+    color: $color-primary;
+    font-weight: 700;
+  }
+}
+.about-us__list {
+  li {
+    list-style-type: none;
+    padding: 0 0 8px 26px;
+    position: relative;
+    margin-bottom: 16px;
+    line-height: 1.6;
+    color: #7f7f90;
+  }
+  p {
+    margin-bottom: 16px;
+    color: #7f7f90;
+    padding-right: 15px;
+  }
+  i {
+    position: absolute;
+    font-size: 20px;
+    left: 0;
+    color: #ce1212;
+  }
+}
+.about-us__list--image img {
+  max-width: 100%;
+}
+// ----------------------------Why-US--------
+.why-us {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  // height: 80vh;
+}
+.why-us__box {
+  width: 350px;
+  background-color: $color-primary;
+  padding: 30px;
+  font-family: $font-default;
+  color: #fff;
+  // height: 85%;
+
+  h3 {
+    font-size: 34px;
+    margin-bottom: 20px;
+  }
+  p {
+    margin-bottom: 16px;
+  }
+}
+// ------------------------stats
+.stats {
+  background-image: url(../images/stats-bg.jpg);
+  position: relative;
+  height: 360px;
+  background-attachment: fixed;
+}
+.services {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+
+  &__number p {
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    font-family: $font-default;
+    font-weight: 700;
+  }
+  &__number {
+    font-size: 48px;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+  }
+}
+// -----------------------------MENU--------------------
+.menu nav ul {
+  display: flex;
+  justify-content: center;
+
+  a {
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid #7f7f90;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+.menu__text {
+  text-align: center;
+  line-height: 1.6;
+  h3 {
+    font-size: 32px;
+    color: $color-primary;
+  }
+  p {
+    color: #7f7f90;
+    margin-top: 20px;
+  }
+}
+.menu__images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 30px;
+}
+.menu-img {
+  padding: 0 60px;
+}
+.menu__images img {
+  width: 100%;
+}
+.menu__price {
+  text-align: center;
+  h4 {
+    font-size: 22px;
+    color: $color-default;
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: 16px;
+    color: #4f4f5a;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  p.price {
+    font-size: 24px;
+    color: $color-primary;
+    font-weight: 700;
+  }
+}
+
+.menu nav ul li :hover::after,
+.menu nav ul li :active::after {
+  transform: scaleX(0);
+}
+// --------------------------TESTIMONIAL----------
+.testimonial {
+  display: flex;
+
+  max-width: 60%;
+  margin: 40px auto;
+  gap: 50px;
+  &__contents {
+    border-left: 3px solid $color-primary;
+    padding-left: 20px;
+    i {
+      color: $color-primary;
+    }
+    p {
+      color: #4f4f5a;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    h3 {
+      color: #212529;
+      font-size: 24px;
+      margin-top: 10px;
+    }
+    h4 {
+      color: #4f4f5a;
+      margin-bottom: 10px;
+    }
+    .stars i {
+      color: #ffc107;
+      font-size: 16px;
+    }
+  }
+}
+.testimonial__img img {
+  border-radius: 50%;
+  width: 100%;
+}
+// ---------------EVENTS------------
+.events__log {
+  display: flex;
+  gap: 5px;
+  height: 500px;
+  &--price img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.events__log--price {
+  position: relative;
+}
+.price-tag {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  bottom: 0px;
+  right: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  h3 {
+    font-size: 24px;
+    margin: 0 0 10px 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+  p {
+    font-size: 16px;
+    margin: 0 0 10px 20px;
+    font-weight: 500;
+  }
+}
+// ----------CHEFS------------
+.chefs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.card-chefs img {
+  width: 100%;
+}
+// ----------------------------TABLE-BOOKING-------
+
+.table-booking {
+  background-color: #eee;
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  padding: 0;
+  &__form {
+    padding: 60px 40px 20px;
+  }
+}
+.table-booking__image img {
+  width: 100%;
+}
+.row {
+  width: 100%;
+  display: flex;
+}
+
+.input33 {
+  width: 33.33%;
+  margin: 0 10px;
+}
+.input100 {
+  width: 100%;
+  margin: 0 10px;
+}
+.row input,
+.row textarea {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #111;
+  background: #fff;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 10px 10px;
+  resize: none;
+}
+.row textarea {
+  height: 150px;
+}
+.form-cantrol:focus {
+  border-color: $color-primary;
+  outline: 0;
+}
+
+// ----------------GALLARY---------
+.gallary {
+  display: flex;
+  gap: 3px;
+}
+.gallary__img img {
+  width: 100%;
+}
+// ----------media-screen---------
+
+@media screen and (max-width: 1050px) {
+  nav ul li {
+    display: none;
+  }
+  .bar {
+    display: block;
+  }
+}
